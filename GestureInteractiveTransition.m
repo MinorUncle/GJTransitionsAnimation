@@ -7,7 +7,6 @@
 //
 
 #import "GestureInteractiveTransition.h"
-#define SUCCESS_PERCENT 0.4
 @interface GestureInteractiveTransition()<GestureInteractiveDelegate>
 {
 //    NSMutableArray<UIGestureRecognizer*>* _gestureRecognizer;
@@ -20,7 +19,6 @@
     self = [super init];
     if (self) {
         self.gestureInteractive = gestureInteractive;
-        _successPercent = SUCCESS_PERCENT;
     }
     return self;
 }
@@ -36,7 +34,7 @@
 }
 -(void)gestureEndWithInteractive:(GestureInteractive *)gestureInteractive{
  //手势完成后结束标记并且判断移动距离是否过半，过则finishInteractiveTransition完成转场操作，否者取消转场操作
-    if (gestureInteractive.gesturePercent > self.successPercent) {
+    if (gestureInteractive.gestureSuccess) {
         [self finishInteractiveTransition];
     }else{
         [self cancelInteractiveTransition];

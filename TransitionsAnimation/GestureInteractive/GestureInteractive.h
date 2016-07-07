@@ -15,6 +15,7 @@ typedef enum GestureInteractiveType{
     gestureInteractiveTypeLongPress
 }GestureInteractiveType;
 
+
 @class GestureInteractive;
 @protocol GestureInteractiveDelegate <NSObject>
 -(void)gestureBeginWithInteractive:(GestureInteractive*)gestureInteractive;
@@ -26,7 +27,10 @@ typedef enum GestureInteractiveType{
 @property(nonatomic,weak)UIView* gestureView;
 
 @property(nonatomic,assign)GestureInteractiveType gestureType;
+//当前手势进度
 @property(nonatomic,assign)float gesturePercent;
+//是否成功，下次开始时初始化为flase，用于执行不到%100时自动完成
+@property(nonatomic,assign)BOOL gestureSuccess;
 @property(nonatomic,retain)UIGestureRecognizer* gestureRecognizer;
 @property(nonatomic,weak)id<GestureInteractiveDelegate> gestureDelegate;
 

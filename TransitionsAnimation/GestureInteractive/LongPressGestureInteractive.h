@@ -9,5 +9,6 @@
 #import "GestureInteractive.h"
 
 @interface LongPressGestureInteractive : GestureInteractive
-
+@property(nonatomic,assign)float totalLenth;
+-(instancetype)initWithRespondView:(UIView *)respondView ;
 @end

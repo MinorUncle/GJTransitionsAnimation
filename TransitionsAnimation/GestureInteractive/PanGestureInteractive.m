@@ -7,6 +7,8 @@
 //
 
 #import "PanGestureInteractive.h"
+#define SUCCESS_PERCENT 0.4
+#define DEFALUT_TOTAL_LENTH_PERCENT 0.6
 @interface PanGestureInteractive()
 {
 
@@ -31,32 +33,38 @@
 -(void)panGestureResponse:(UIPanGestureRecognizer*)panGesture{
     //手势百分比
     CGFloat persent = 0;
+    CGPoint point = [panGesture translationInView:panGesture.view];
     switch (_direction) {
         case panGestureDirectionDirectionToLeft:{
-            CGFloat transitionX = -[panGesture translationInView:panGesture.view].x;
-            persent = transitionX / panGesture.view.frame.size.width;
+            CGFloat transitionX = -point.x;
+            persent = transitionX / (_totalLenth <=0 ?panGesture.view.bounds.size.width*DEFALUT_TOTAL_LENTH_PERCENT:_totalLenth);
         }
             break;
         case panGestureDirectionDirectionToRight:{
-            CGFloat transitionX = [panGesture translationInView:panGesture.view].x;
-            persent = transitionX / panGesture.view.frame.size.width;
+            CGFloat transitionX = point.x;
+            persent = transitionX / (_totalLenth <=0 ?panGesture.view.bounds.size.width*DEFALUT_TOTAL_LENTH_PERCENT:_totalLenth);
         }
             break;
         case panGestureDirectionDirectionToUp:{
-            CGFloat transitionY = -[panGesture translationInView:panGesture.view].y;
-            persent = transitionY / panGesture.view.frame.size.width;
+            CGFloat transitionY = -point.y;
+            persent = transitionY / (_totalLenth <=0 ?panGesture.view.bounds.size.height*DEFALUT_TOTAL_LENTH_PERCENT:_totalLenth);
         }
             break;
         case panGestureDirectionDirectionToDown:{
-            CGFloat transitionY = [panGesture translationInView:panGesture.view].y;
-            persent = transitionY / panGesture.view.frame.size.width;
+            CGFloat transitionY = point.y;
+            persent = transitionY / (_totalLenth <=0 ?panGesture.view.bounds.size.height*DEFALUT_TOTAL_LENTH_PERCENT:_totalLenth);
         }
             break;
     }
+    NSLog(@"poin:%@,%f",[NSValue valueWithCGPoint:point],persent);
     self.gesturePercent = persent;
+    if(persent >= SUCCESS_PERCENT){
+        self.gestureSuccess = YES;
+    }
     switch (panGesture.state) {
         case UIGestureRecognizerStateBegan:
             //手势开始的时候标记手势状态，并开始相应的事件
+            self.gestureSuccess = NO;
             if ([self.gestureDelegate respondsToSelector:@selector(gestureBeginWithInteractive:)]) {
                 [self.gestureDelegate gestureBeginWithInteractive:self];
             }
