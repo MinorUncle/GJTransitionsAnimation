@@ -23,6 +23,8 @@ typedef enum GestureInteractiveType{
 @end
 
 @interface GestureInteractive : NSObject
+@property(nonatomic,weak)UIView* gestureView;
+
 @property(nonatomic,assign)GestureInteractiveType gestureType;
 @property(nonatomic,assign)float gesturePercent;
 @property(nonatomic,retain)UIGestureRecognizer* gestureRecognizer;

@@ -7,6 +7,7 @@
 //
 
 #import "TransitionsAnimation.h"
+#define DEFAULT_DURATION 0.5
 
 @interface TransitionsAnimation (){
     GestureInteractiveTransition* _interactiveTransition;
@@ -17,8 +18,9 @@
 @end
 @implementation TransitionsAnimation
 
+
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext{
-    return 0.5;
+    return _transitionDuration <= 0 ? DEFAULT_DURATION:_transitionDuration;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext{

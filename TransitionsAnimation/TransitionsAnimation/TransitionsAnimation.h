@@ -12,7 +12,8 @@
 #import <UIKit/UINavigationController.h>
 #import "GestureInteractiveTransition.h"
 typedef enum _TransitionsAnimationType{
-    transitionsAnimationTypePageNone,
+    transitionsAnimationTypeNone,
+    transitionsAnimationTypeFadeInOut,
     transitionsAnimationTypePageCover,
     transitionsAnimationTypePresentOne,
     transitionsAnimationTypeMagicMove,
@@ -23,5 +24,5 @@ typedef enum _TransitionsAnimationType{
 @interface TransitionsAnimation : NSObject<UIViewControllerAnimatedTransitioning>
 //animationType， only assign before push or present
 @property(nonatomic,assign)TransitionsAnimationType animationType;
-
+@property(nonatomic,assign)float transitionDuration;
 @end

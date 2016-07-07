@@ -7,33 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C573B13A1D2B8D1200DF617D /* GestureInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = C573B1391D2B8D1200DF617D /* GestureInteractive.m */; };
-		C573B13D1D2B8D3500DF617D /* PanGestureInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = C573B13C1D2B8D3500DF617D /* PanGestureInteractive.m */; };
-		C573B1401D2B8DFB00DF617D /* LongPressGestureInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = C573B13F1D2B8DFB00DF617D /* LongPressGestureInteractive.m */; };
-		C573B1661D2B999500DF617D /* TransitionsAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C573B1651D2B999500DF617D /* TransitionsAnimationManager.m */; };
-		C573B1691D2B9BA900DF617D /* PageCoverTransitionsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C573B1681D2B9BA900DF617D /* PageCoverTransitionsAnimation.m */; };
+		C54AB6511D2E06F5006CD7AE /* FadeInOutTransitionsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AB64E1D2E06F5006CD7AE /* FadeInOutTransitionsAnimation.m */; };
+		C54AB6521D2E06F5006CD7AE /* TransitionsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AB6501D2E06F5006CD7AE /* TransitionsAnimation.m */; };
+		C54AB65C1D2E06FB006CD7AE /* GestureInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AB6551D2E06FB006CD7AE /* GestureInteractive.m */; };
+		C54AB65D1D2E06FB006CD7AE /* LongPressGestureInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AB6571D2E06FB006CD7AE /* LongPressGestureInteractive.m */; };
+		C54AB65F1D2E06FB006CD7AE /* PanGestureInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AB65B1D2E06FB006CD7AE /* PanGestureInteractive.m */; };
+		C54AB6621D2E2924006CD7AE /* PageCoverTransitionsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AB6611D2E2924006CD7AE /* PageCoverTransitionsAnimation.m */; };
+		C573B1661D2B999500DF617D /* GestureTransitionsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C573B1651D2B999500DF617D /* GestureTransitionsAnimation.m */; };
 		C58FE2251D26046A007D19D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C58FE2241D26046A007D19D7 /* main.m */; };
 		C58FE2281D26046A007D19D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C58FE2271D26046A007D19D7 /* AppDelegate.m */; };
 		C58FE22B1D26046B007D19D7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C58FE22A1D26046B007D19D7 /* ViewController.m */; };
 		C58FE22E1D26046B007D19D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C58FE22C1D26046B007D19D7 /* Main.storyboard */; };
 		C58FE2301D26046B007D19D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C58FE22F1D26046B007D19D7 /* Assets.xcassets */; };
 		C58FE2331D26046B007D19D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C58FE2311D26046B007D19D7 /* LaunchScreen.storyboard */; };
-		C58FE23C1D2604E5007D19D7 /* TransitionsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C58FE23B1D2604E5007D19D7 /* TransitionsAnimation.m */; };
 		C5AD7D581D2A010800E37239 /* SecondController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AD7D571D2A010800E37239 /* SecondController.m */; };
 		C5AD7D5B1D2A3DF100E37239 /* GestureInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AD7D5A1D2A3DF100E37239 /* GestureInteractiveTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C573B1381D2B8D1200DF617D /* GestureInteractive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureInteractive.h; sourceTree = "<group>"; };
-		C573B1391D2B8D1200DF617D /* GestureInteractive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureInteractive.m; sourceTree = "<group>"; };
-		C573B13B1D2B8D3500DF617D /* PanGestureInteractive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanGestureInteractive.h; sourceTree = "<group>"; };
-		C573B13C1D2B8D3500DF617D /* PanGestureInteractive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanGestureInteractive.m; sourceTree = "<group>"; };
-		C573B13E1D2B8DFB00DF617D /* LongPressGestureInteractive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongPressGestureInteractive.h; sourceTree = "<group>"; };
-		C573B13F1D2B8DFB00DF617D /* LongPressGestureInteractive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongPressGestureInteractive.m; sourceTree = "<group>"; };
-		C573B1641D2B999500DF617D /* TransitionsAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionsAnimationManager.h; sourceTree = "<group>"; };
-		C573B1651D2B999500DF617D /* TransitionsAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionsAnimationManager.m; sourceTree = "<group>"; };
-		C573B1671D2B9BA900DF617D /* PageCoverTransitionsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageCoverTransitionsAnimation.h; sourceTree = "<group>"; };
-		C573B1681D2B9BA900DF617D /* PageCoverTransitionsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageCoverTransitionsAnimation.m; sourceTree = "<group>"; };
+		C54AB64D1D2E06F5006CD7AE /* FadeInOutTransitionsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeInOutTransitionsAnimation.h; sourceTree = "<group>"; };
+		C54AB64E1D2E06F5006CD7AE /* FadeInOutTransitionsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadeInOutTransitionsAnimation.m; sourceTree = "<group>"; };
+		C54AB64F1D2E06F5006CD7AE /* TransitionsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionsAnimation.h; sourceTree = "<group>"; };
+		C54AB6501D2E06F5006CD7AE /* TransitionsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionsAnimation.m; sourceTree = "<group>"; };
+		C54AB6541D2E06FB006CD7AE /* GestureInteractive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureInteractive.h; sourceTree = "<group>"; };
+		C54AB6551D2E06FB006CD7AE /* GestureInteractive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureInteractive.m; sourceTree = "<group>"; };
+		C54AB6561D2E06FB006CD7AE /* LongPressGestureInteractive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongPressGestureInteractive.h; sourceTree = "<group>"; };
+		C54AB6571D2E06FB006CD7AE /* LongPressGestureInteractive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongPressGestureInteractive.m; sourceTree = "<group>"; };
+		C54AB65A1D2E06FB006CD7AE /* PanGestureInteractive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanGestureInteractive.h; sourceTree = "<group>"; };
+		C54AB65B1D2E06FB006CD7AE /* PanGestureInteractive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanGestureInteractive.m; sourceTree = "<group>"; };
+		C54AB6601D2E2924006CD7AE /* PageCoverTransitionsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageCoverTransitionsAnimation.h; sourceTree = "<group>"; };
+		C54AB6611D2E2924006CD7AE /* PageCoverTransitionsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageCoverTransitionsAnimation.m; sourceTree = "<group>"; };
+		C573B1641D2B999500DF617D /* GestureTransitionsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureTransitionsAnimation.h; sourceTree = "<group>"; };
+		C573B1651D2B999500DF617D /* GestureTransitionsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureTransitionsAnimation.m; sourceTree = "<group>"; };
 		C58FE2201D26046A007D19D7 /* TransitionsAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitionsAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C58FE2241D26046A007D19D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C58FE2261D26046A007D19D7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,8 +49,6 @@
 		C58FE22F1D26046B007D19D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C58FE2321D26046B007D19D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C58FE2341D26046B007D19D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C58FE23A1D2604E5007D19D7 /* TransitionsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionsAnimation.h; sourceTree = "<group>"; };
-		C58FE23B1D2604E5007D19D7 /* TransitionsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionsAnimation.m; sourceTree = "<group>"; };
 		C5AD7D561D2A010800E37239 /* SecondController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondController.h; sourceTree = "<group>"; };
 		C5AD7D571D2A010800E37239 /* SecondController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondController.m; sourceTree = "<group>"; };
 		C5AD7D591D2A3DF100E37239 /* GestureInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GestureInteractiveTransition.h; path = ../GestureInteractiveTransition.h; sourceTree = "<group>"; };
@@ -63,6 +66,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C54AB64C1D2E06F5006CD7AE /* TransitionsAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				C54AB64D1D2E06F5006CD7AE /* FadeInOutTransitionsAnimation.h */,
+				C54AB64E1D2E06F5006CD7AE /* FadeInOutTransitionsAnimation.m */,
+				C54AB64F1D2E06F5006CD7AE /* TransitionsAnimation.h */,
+				C54AB6501D2E06F5006CD7AE /* TransitionsAnimation.m */,
+				C54AB6601D2E2924006CD7AE /* PageCoverTransitionsAnimation.h */,
+				C54AB6611D2E2924006CD7AE /* PageCoverTransitionsAnimation.m */,
+			);
+			path = TransitionsAnimation;
+			sourceTree = "<group>";
+		};
+		C54AB6531D2E06FB006CD7AE /* GestureInteractive */ = {
+			isa = PBXGroup;
+			children = (
+				C54AB6541D2E06FB006CD7AE /* GestureInteractive.h */,
+				C54AB6551D2E06FB006CD7AE /* GestureInteractive.m */,
+				C54AB6561D2E06FB006CD7AE /* LongPressGestureInteractive.h */,
+				C54AB6571D2E06FB006CD7AE /* LongPressGestureInteractive.m */,
+				C54AB65A1D2E06FB006CD7AE /* PanGestureInteractive.h */,
+				C54AB65B1D2E06FB006CD7AE /* PanGestureInteractive.m */,
+			);
+			path = GestureInteractive;
+			sourceTree = "<group>";
+		};
 		C58FE2171D26046A007D19D7 = {
 			isa = PBXGroup;
 			children = (
@@ -91,20 +120,12 @@
 				C58FE2311D26046B007D19D7 /* LaunchScreen.storyboard */,
 				C58FE2341D26046B007D19D7 /* Info.plist */,
 				C58FE2231D26046A007D19D7 /* Supporting Files */,
-				C58FE23A1D2604E5007D19D7 /* TransitionsAnimation.h */,
-				C58FE23B1D2604E5007D19D7 /* TransitionsAnimation.m */,
-				C573B1671D2B9BA900DF617D /* PageCoverTransitionsAnimation.h */,
-				C573B1681D2B9BA900DF617D /* PageCoverTransitionsAnimation.m */,
-				C573B1641D2B999500DF617D /* TransitionsAnimationManager.h */,
-				C573B1651D2B999500DF617D /* TransitionsAnimationManager.m */,
+				C573B1641D2B999500DF617D /* GestureTransitionsAnimation.h */,
+				C573B1651D2B999500DF617D /* GestureTransitionsAnimation.m */,
+				C54AB64C1D2E06F5006CD7AE /* TransitionsAnimation */,
+				C54AB6531D2E06FB006CD7AE /* GestureInteractive */,
 				C5AD7D591D2A3DF100E37239 /* GestureInteractiveTransition.h */,
 				C5AD7D5A1D2A3DF100E37239 /* GestureInteractiveTransition.m */,
-				C573B1381D2B8D1200DF617D /* GestureInteractive.h */,
-				C573B1391D2B8D1200DF617D /* GestureInteractive.m */,
-				C573B13E1D2B8DFB00DF617D /* LongPressGestureInteractive.h */,
-				C573B13F1D2B8DFB00DF617D /* LongPressGestureInteractive.m */,
-				C573B13B1D2B8D3500DF617D /* PanGestureInteractive.h */,
-				C573B13C1D2B8D3500DF617D /* PanGestureInteractive.m */,
 				C5AD7D561D2A010800E37239 /* SecondController.h */,
 				C5AD7D571D2A010800E37239 /* SecondController.m */,
 			);
@@ -150,6 +171,7 @@
 				TargetAttributes = {
 					C58FE21F1D26046A007D19D7 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = X33DX68294;
 					};
 				};
 			};
@@ -191,15 +213,16 @@
 			files = (
 				C58FE22B1D26046B007D19D7 /* ViewController.m in Sources */,
 				C58FE2281D26046A007D19D7 /* AppDelegate.m in Sources */,
+				C54AB65C1D2E06FB006CD7AE /* GestureInteractive.m in Sources */,
 				C5AD7D581D2A010800E37239 /* SecondController.m in Sources */,
 				C5AD7D5B1D2A3DF100E37239 /* GestureInteractiveTransition.m in Sources */,
-				C573B1401D2B8DFB00DF617D /* LongPressGestureInteractive.m in Sources */,
+				C54AB6511D2E06F5006CD7AE /* FadeInOutTransitionsAnimation.m in Sources */,
+				C54AB65F1D2E06FB006CD7AE /* PanGestureInteractive.m in Sources */,
 				C58FE2251D26046A007D19D7 /* main.m in Sources */,
-				C58FE23C1D2604E5007D19D7 /* TransitionsAnimation.m in Sources */,
-				C573B1691D2B9BA900DF617D /* PageCoverTransitionsAnimation.m in Sources */,
-				C573B13D1D2B8D3500DF617D /* PanGestureInteractive.m in Sources */,
-				C573B13A1D2B8D1200DF617D /* GestureInteractive.m in Sources */,
-				C573B1661D2B999500DF617D /* TransitionsAnimationManager.m in Sources */,
+				C54AB6621D2E2924006CD7AE /* PageCoverTransitionsAnimation.m in Sources */,
+				C573B1661D2B999500DF617D /* GestureTransitionsAnimation.m in Sources */,
+				C54AB65D1D2E06FB006CD7AE /* LongPressGestureInteractive.m in Sources */,
+				C54AB6521D2E06F5006CD7AE /* TransitionsAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +266,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -287,6 +311,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -311,10 +336,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TransitionsAnimation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "--.TransitionsAnimation";
+				PRODUCT_BUNDLE_IDENTIFIER = GJ.TransitionsAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -323,10 +349,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TransitionsAnimation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "--.TransitionsAnimation";
+				PRODUCT_BUNDLE_IDENTIFIER = GJ.TransitionsAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

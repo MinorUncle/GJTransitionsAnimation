@@ -21,21 +21,21 @@ typedef enum AnimationOperation{
 
 //手势触发时窗口弹出类型，默认
 typedef enum GesturePresentType{
-    gesturePresentTypeNone,//default
     gesturePresentTypeNoModel, //navigation push
     gesturePresentTypeModel//present,dissmiss
 }GesturePresentType;
 
 
-@interface TransitionsAnimationManager : NSObject<UIViewControllerTransitioningDelegate,UINavigationControllerDelegate,GestureInteractiveTransitionDelegate>
+@interface GestureTransitionsAnimation : NSObject<UIViewControllerTransitioningDelegate,UINavigationControllerDelegate,GestureInteractiveTransitionDelegate>
 @property(nonatomic,readonly,assign)GesturePresentType presentType;
 @property(nonatomic,readonly,assign)AnimationOperation animationOperation;
-
 @property(nonatomic,weak)UIViewController* presentedC;
 @property(nonatomic,weak)UIViewController* presentingC;
 
 
-//default nil
+
+//default no
+@property(nonatomic,assign)BOOL transitionWithoutGesture;
 
 //default nil ignore gestureInteractiveTransitionType if set;
 @property(nonatomic,retain)GestureInteractiveTransition* popGestureInteractiveTransition;
@@ -45,6 +45,14 @@ typedef enum GesturePresentType{
 @property(nonatomic,retain)TransitionsAnimation* popTransitionAnimation;
 
 
-- (void)startListenGestureFromeController:(UIViewController*)fC toController:(UIViewController *)tC  presentModel:(GesturePresentType)presentTpye;
+- (instancetype)initWithToController:(UIViewController*)tC presentModel:(GesturePresentType)presentTpye;
+@end
 
+@interface UIViewController (TransitionsAnimation)
+-(void)addGestureTransitionsAnimation:(GestureTransitionsAnimation*)gestureAnimation;
+@end
+@implementation UIViewController(TransitionsAnimation)
+-(void)addGestureTransitionsAnimation:(GestureTransitionsAnimation*)gestureAnimation{
+    [gestureAnimation setPresentedC:self];
+}
 @end

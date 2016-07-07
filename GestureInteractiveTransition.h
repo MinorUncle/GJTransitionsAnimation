@@ -16,6 +16,7 @@
 
 @interface GestureInteractiveTransition : UIPercentDrivenInteractiveTransition
 @property(nonatomic,weak)id<GestureInteractiveTransitionDelegate> transitionDelegate;
+@property(nonatomic,assign)float successPercent;
 
 @property(nonatomic,retain)GestureInteractive* gestureInteractive;
 -(instancetype)initWithGestureInteractive:(GestureInteractive*)gestureInteractive;

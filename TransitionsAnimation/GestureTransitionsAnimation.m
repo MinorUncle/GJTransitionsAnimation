@@ -6,53 +6,42 @@
 //  Copyright © 2016年 MinorUncle. All rights reserved.
 //
 
-#import "TransitionsAnimationManager.h"
+#import "GestureTransitionsAnimation.h"
 #import "PanGestureInteractive.h"
-#import "PageCoverTransitionsAnimation.h"
-@interface TransitionsAnimationManager()
+#import "FadeInOutTransitionsAnimation.h"
+@interface GestureTransitionsAnimation()
 @property (nonatomic, assign) UINavigationControllerOperation currentOperation;
+
 @end;
 
-@implementation TransitionsAnimationManager
-
-- (void)startListenGestureFromeController:(UIViewController*)fC toController:(UIViewController *)tC  presentModel:(GesturePresentType)presentTpye{
-    _popGestureInteractiveTransition = nil;
-    _pushGestureInteractiveTransition = nil;
-
-    _presentType = presentTpye;
-    if (presentTpye == gesturePresentTypeModel) {
-        tC.transitioningDelegate = self;
-    }else if(presentTpye == gesturePresentTypeNoModel){
-        fC.navigationController.delegate = self;
-    }else{
-        if (fC.navigationController != nil) {
-            _presentType = gesturePresentTypeNoModel;
-            fC.navigationController.delegate = self;
-        }else{
-            _presentType = gesturePresentTypeModel;
-            tC.transitioningDelegate = self;
-        }
+@implementation GestureTransitionsAnimation
+- (instancetype)initWithToController:(UIViewController*)tC presentModel:(GesturePresentType)presentTpye
+{
+    self = [super init];
+    if (self) {
+        _presentType = presentTpye;
+        self.presentingC = tC;
     }
-    _presentedC = fC;
-    _presentingC = tC;
-    
-    if (_pushGestureInteractiveTransition == nil) {
-        _pushGestureInteractiveTransition = [self defaultPushGestureInteractiveTransition];
-    }
-    if (_popGestureInteractiveTransition == nil) {
-        _popGestureInteractiveTransition = [self defaultPopGestureInteractiveTransition];
-    }
+    return self;
 }
+
 -(void)setPresentedC:(UIViewController *)presentedC{
     if (_presentedC != presentedC) {
-        _popGestureInteractiveTransition = nil;
+        _pushGestureInteractiveTransition = nil;
         _presentedC = presentedC;
+        if (_pushGestureInteractiveTransition == nil) {
+            _pushGestureInteractiveTransition = [self defaultPushGestureInteractiveTransition];
+        }
+        if(_presentType == gesturePresentTypeNoModel){
+            presentedC.navigationController.delegate = self;
+        }
     }
 }
 -(void)setPresentingC:(UIViewController *)presentingC{
     if (_presentingC != presentingC) {
-        _pushGestureInteractiveTransition = nil;
+        _popGestureInteractiveTransition = nil;
         _presentingC = presentingC;
+
     }
 }
 
@@ -83,65 +72,71 @@
 
 -(TransitionsAnimation *)pushTransitionAnimation{
     if (_pushTransitionAnimation == nil) {
-        _pushTransitionAnimation = [[PageCoverTransitionsAnimation alloc]initWithDirection:pageCoverDirectionToLeft];
+        _pushTransitionAnimation = [[FadeInOutTransitionsAnimation alloc]initWithDirection:fadeInOutDirectionToLeft type:fadeInOutTypeIn];
     }
     return _pushTransitionAnimation;
 }
 -(TransitionsAnimation *)popTransitionAnimation{
     if (_popTransitionAnimation == nil) {
-        _popTransitionAnimation = [[PageCoverTransitionsAnimation alloc]initWithDirection:pageCoverDirectionToRight];
+        _popTransitionAnimation = [[FadeInOutTransitionsAnimation alloc]initWithDirection:fadeInOutDirectionToRight type:fadeInOutTypeOut];
     }
     return _popTransitionAnimation;
 }
-//
-//-(id<UIViewControllerAnimatedTransitioning>)presentAnimation{
-//    _animationOperation = animationOperationPresent;
-//    return self.pushTransitionAnimation;
-//}
-//-(id<UIViewControllerAnimatedTransitioning>)dissmissAnimation{
-//    _animationOperation = animationOperationDissmiss;
-//    return self.popTransitionAnimation;
-//}
-//-(id<UIViewControllerAnimatedTransitioning>)pushAnimation{
-//    _animationOperation = animationOperationPush;
-//    return self.pushTransitionAnimation;
-//}
-//-(id<UIViewControllerAnimatedTransitioning>)popAnimation{
-//    _animationOperation = animationOperationPop;
-//    return self.popTransitionAnimation;
-//}
-
 
 
 #pragma mark --delegate
 -(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source{
     _currentOperation = UINavigationControllerOperationPush;
-    return self.pushTransitionAnimation;
+    id animation = self.pushTransitionAnimation;
+    if (self.pushGestureInteractiveTransition.gestureInteractive.gestureRecognizer.state != UIGestureRecognizerStateBegan && !self.transitionWithoutGesture) {
+        animation = nil;
+    }
+    return animation;
 }
 -(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
     _currentOperation = UINavigationControllerOperationPop;
-    return self.popTransitionAnimation;
+    id animation = self.popTransitionAnimation;
+    if (self.popGestureInteractiveTransition.gestureInteractive.gestureRecognizer.state != UIGestureRecognizerStateBegan && !self.transitionWithoutGesture) {
+        animation = nil;
+    }
+    return animation;
 };
 
 
 
 - (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator{
 
-    return self.popGestureInteractiveTransition;
+    id transition = self.popGestureInteractiveTransition;
+    if (self.popGestureInteractiveTransition.gestureInteractive.gestureRecognizer.state != UIGestureRecognizerStateBegan && !self.transitionWithoutGesture) {
+        transition = nil;
+    }
+    return transition;
 }
 
 - (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator{
     
-    return self.pushGestureInteractiveTransition;
+    id transition = self.pushGestureInteractiveTransition;
+    if (self.pushGestureInteractiveTransition.gestureInteractive.gestureRecognizer.state != UIGestureRecognizerStateBegan && !self.transitionWithoutGesture) {
+        transition = nil;
+    }
+    return transition;
 }
 
 - (nullable id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
                                    interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController {
+    id transition;
     if (_currentOperation == UINavigationControllerOperationPop) {
-        return self.popGestureInteractiveTransition;
+        transition = self.popGestureInteractiveTransition;
+        if (self.popGestureInteractiveTransition.gestureInteractive.gestureRecognizer.state != UIGestureRecognizerStateBegan && !self.transitionWithoutGesture) {
+            transition = nil;
+        }
     }else{
-        return self.pushGestureInteractiveTransition;
+        transition = self.pushGestureInteractiveTransition;
+        if (self.pushGestureInteractiveTransition.gestureInteractive.gestureRecognizer.state != UIGestureRecognizerStateBegan && !self.transitionWithoutGesture) {
+            transition = nil;
+        }
     };
+    return transition;
 }
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
@@ -149,11 +144,19 @@
                                                          fromViewController:(UIViewController *)fromVC
                                                            toViewController:(UIViewController *)toVC  {
     _currentOperation = operation;
+    id animation;
     if (operation == UINavigationControllerOperationPop) {
-        return [self popTransitionAnimation];
+        animation = self.popTransitionAnimation;
+        if (self.popGestureInteractiveTransition.gestureInteractive.gestureRecognizer.state != UIGestureRecognizerStateBegan && !self.transitionWithoutGesture) {
+            animation = nil;
+        }
     }else{
-        return [self pushTransitionAnimation];
+        animation = self.pushTransitionAnimation;
+        if (self.pushGestureInteractiveTransition.gestureInteractive.gestureRecognizer.state != UIGestureRecognizerStateBegan && !self.transitionWithoutGesture) {
+            animation = nil;
+        }
     };
+    return animation;
 }
 
 
@@ -162,12 +165,22 @@
         if (gestureInteractiveTransition == self.popGestureInteractiveTransition){
             [self.presentingC dismissViewControllerAnimated:YES completion:nil];
         }else{
+            if (_popGestureInteractiveTransition == nil) {
+                _popGestureInteractiveTransition = [self defaultPopGestureInteractiveTransition];
+            }
+            if (_presentType == gesturePresentTypeModel) {
+                self.presentingC.transitioningDelegate = self;
+            }
             [self.presentedC presentViewController:self.presentingC animated:YES completion:nil];
         }
     }else if(self.presentType != gesturePresentTypeModel){
+        self.presentedC.navigationController.delegate = self;
         if  (gestureInteractiveTransition == self.popGestureInteractiveTransition){
             [self.presentedC.navigationController popViewControllerAnimated:YES];
         }else{
+            if (_popGestureInteractiveTransition == nil) {
+                _popGestureInteractiveTransition = [self defaultPopGestureInteractiveTransition];
+            }
             [self.presentedC.navigationController pushViewController:self.presentingC animated:YES];
         }
     }

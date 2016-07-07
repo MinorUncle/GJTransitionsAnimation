@@ -13,9 +13,15 @@ typedef enum PageCoverDirection{
     pageCoverDirectionToUp,
     pageCoverDirectionToDown
 }PageCoverDirection;
+
+typedef enum PageCoverInOutType{
+    pageCoverInOutTypeIn,
+    pageCoverInOutTypeOut
+}PageCoverInOutType;
 @interface PageCoverTransitionsAnimation : TransitionsAnimation
 
 @property(nonatomic,assign)PageCoverDirection direction;
+@property(nonatomic,assign)PageCoverInOutType coverType;
 
--(instancetype)initWithDirection:(PageCoverDirection)direction;
+-(instancetype)initWithDirection:(PageCoverDirection)direction coverType:(PageCoverInOutType)coverType;
 @end

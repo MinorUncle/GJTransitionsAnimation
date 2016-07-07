@@ -17,10 +17,16 @@
 {
     self = [super initWithGestureType:gestureInteractiveTypePan];
     if (self) {
+        _direction = gestureDirection;
         self.gestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panGestureResponse:)];
         [respondView addGestureRecognizer:self.gestureRecognizer];
     }
     return self;
+}
+-(void)setGestureView:(UIView *)gestureView{
+    [super setGestureView:gestureView];
+    [self.gestureRecognizer removeTarget:nil action:nil];
+    [gestureView addGestureRecognizer:self.gestureRecognizer];
 }
 -(void)panGestureResponse:(UIPanGestureRecognizer*)panGesture{
     //手势百分比
@@ -73,7 +79,6 @@
         default:
             break;
     }
-    
 }
 
 @end
