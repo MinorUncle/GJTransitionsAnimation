@@ -22,6 +22,7 @@
         _direction = gestureDirection;
         self.gestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panGestureResponse:)];
         [respondView addGestureRecognizer:self.gestureRecognizer];
+        [super setGestureView:respondView];
     }
     return self;
 }

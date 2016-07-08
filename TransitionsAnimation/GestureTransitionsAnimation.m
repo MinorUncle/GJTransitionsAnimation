@@ -9,6 +9,7 @@
 #import "GestureTransitionsAnimation.h"
 #import "PanGestureInteractive.h"
 #import "FadeInOutTransitionsAnimation.h"
+#import "LongPressGestureInteractive.h"
 @interface GestureTransitionsAnimation()
 @property (nonatomic, assign) UINavigationControllerOperation currentOperation;
 
@@ -58,13 +59,13 @@
     return _pushGestureInteractiveTransition;
 }
 -(GestureInteractiveTransition*)defaultPopGestureInteractiveTransition{
-    PanGestureInteractive* gestureDefault = [[PanGestureInteractive alloc]initWithRespondView:_presentingC.view PanGestureDirection:panGestureDirectionDirectionToRight];
+    LongPressGestureInteractive* gestureDefault = [[LongPressGestureInteractive alloc]initWithRespondView:_presentingC.view];
     GestureInteractiveTransition* defaultPopTransition = [[GestureInteractiveTransition alloc]initWithGestureInteractive:gestureDefault];
     defaultPopTransition.transitionDelegate = self;
     return defaultPopTransition;
 }
 -(GestureInteractiveTransition*)defaultPushGestureInteractiveTransition{
-    PanGestureInteractive* gestureDefault = [[PanGestureInteractive alloc]initWithRespondView:_presentedC.view PanGestureDirection:panGestureDirectionDirectionToLeft];
+    LongPressGestureInteractive* gestureDefault = [[LongPressGestureInteractive alloc]initWithRespondView:_presentedC.view];
     GestureInteractiveTransition* defaultPushTransition = [[GestureInteractiveTransition alloc]initWithGestureInteractive:gestureDefault];
     defaultPushTransition.transitionDelegate = self;
     return defaultPushTransition;
